@@ -125,3 +125,27 @@ article img {
   margin: 30px auto;
   border-radius: 6px;
 }
+
+/* Kullanıcı cihazında Dark Mode seçiliyse bu renkler devreye girer */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212; /* Siyaha yakın çok koyu gri (Gözü yormaz) */
+        color: #e0e0e0;            /* Kirli beyaz metin (Kontrastı yumuşatır) */
+    }
+    
+    h1, h2, nav a, .post a {
+        color: #ffffff;            /* Başlıklar ve linkler tam beyaz */
+    }
+    
+    .subtitle, .post-meta, footer {
+        color: #aaaaaa;            /* Yan bilgiler daha açık gri */
+    }
+
+    nav, footer {
+        border-color: #333;        /* Ayırıcı çizgileri koyulaştırır */
+    }
+    
+    nav a:hover, .post a:hover {
+        color: #4dabff;            /* Dark mode'da daha iyi görünen bir mavi */
+    }
+}
