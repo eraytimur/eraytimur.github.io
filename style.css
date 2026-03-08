@@ -126,26 +126,31 @@ article img {
   border-radius: 6px;
 }
 
-/* Kullanıcı cihazında Dark Mode seçiliyse bu renkler devreye girer */
+/* Gece Modu Başlangıcı */
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #121212; /* Siyaha yakın çok koyu gri (Gözü yormaz) */
-        color: #e0e0e0;            /* Kirli beyaz metin (Kontrastı yumuşatır) */
+        background-color: #121212 !important; /* !important zorunlu kılar */
+        color: #e0e0e0 !important;
     }
     
+    .container {
+        background-color: #121212 !important;
+    }
+
     h1, h2, nav a, .post a {
-        color: #ffffff;            /* Başlıklar ve linkler tam beyaz */
+        color: #ffffff !important;
     }
     
     .subtitle, .post-meta, footer {
-        color: #aaaaaa;            /* Yan bilgiler daha açık gri */
+        color: #aaaaaa !important;
     }
 
     nav, footer {
-        border-color: #333;        /* Ayırıcı çizgileri koyulaştırır */
+        border-color: #333 !important;
     }
     
     nav a:hover, .post a:hover {
-        color: #4dabff;            /* Dark mode'da daha iyi görünen bir mavi */
+        color: #4dabff !important;
     }
 }
+/* Gece Modu Bitişi */
