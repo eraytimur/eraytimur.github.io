@@ -1,9 +1,3 @@
-article p {
-  display: block !important;
-  text-align: left !important;
-  justify-content: normal !important;
-  align-items: normal !important;
-}
 
 /* 1. Sayfa Temeli ve Tipografi */
 body {
