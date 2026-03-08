@@ -1,56 +1,60 @@
 /* 1. Sayfa Temeli ve Tipografi */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     margin: 0;
     background: #ffffff;
-    color: #111;
-    line-height: 1.7; /* Okunabilirliği artıran geniş satır aralığı */
-    -webkit-font-smoothing: antialiased; /* Fontların daha net görünmesini sağlar */
+    color: #111111;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased; /* Font netliği (V1'den) */
 }
 
 /* 2. Ana Taşıyıcı (Container) */
 .container {
     max-width: 720px;
     margin: auto;
-    padding: 60px 20px;
+    padding: 56px 20px;
 }
 
-/* 3. Başlıklar */
+/* 3. Başlıklar ve Hiyerarşi */
 h1 {
     font-size: 42px;
-    margin-bottom: 10px;
-    line-height: 1.2;
+    line-height: 1.15;
+    margin-bottom: 12px;
     color: #000;
 }
 
-/* Mobil cihazlar için başlık boyutunu optimize eder */
+h2 {
+    font-size: 24px; /* Biraz daha vurgulu */
+    margin-top: 48px;
+    margin-bottom: 18px;
+    color: #000;
+}
+
+/* Mobil cihazlar için başlık ve boşluk optimizasyonu (V1'den) */
 @media (max-width: 600px) {
-    h1 {
-        font-size: 32px;
-    }
-    .container {
-        padding: 30px 20px;
-    }
+    h1 { font-size: 32px; }
+    h2 { font-size: 22px; }
+    .container { padding: 30px 20px; }
 }
 
 .subtitle {
-    color: #666;
-    margin-bottom: 40px;
-    font-size: 1.1em;
+    color: #666666;
+    margin-bottom: 42px;
+    font-size: 17px;
 }
 
 /* 4. Navigasyon (Menü) */
 nav {
-    margin-bottom: 60px;
-    border-bottom: 1px solid #eee; /* Hafif bir ayırıcı çizgi ekler */
+    margin-bottom: 52px;
+    border-bottom: 1px solid #eee; /* Hafif ayırıcı çizgi (V1'den) */
     padding-bottom: 20px;
 }
 
 nav a {
-    margin-right: 20px;
+    margin-right: 22px;
     text-decoration: none;
-    color: #000;
-    font-weight: 500;
+    color: #111111;
+    font-weight: 600; /* Daha belirgin (V2'den) */
 }
 
 nav a:hover {
@@ -59,48 +63,59 @@ nav a:hover {
 
 /* 5. İçerik ve Yazı Listesi */
 .section {
-    margin-bottom: 60px;
+    margin-bottom: 56px;
 }
 
 .post {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .post a {
-    font-size: 22px; /* Başlıkları biraz daha belirgin yaptık */
+    font-size: 22px; /* Başlık vurgusu (V1'den) */
     font-weight: 600;
     text-decoration: none;
-    color: #000;
+    color: #111111;
     display: block; /* Tıklama alanını genişletir */
-    margin-bottom: 5px;
 }
 
 .post a:hover {
-    color: #007bff; /* Üzerine gelince hafif renk değişimi */
+    color: #007bff; /* Renk değişimi ile etkileşim (V1'den) */
 }
 
-/* Liste öğeleri için temiz düzen */
+/* Yazı Meta Verileri (Tarih vb. - V2'den) */
+.post-meta, .article-meta {
+    font-size: 14px;
+    color: #777777;
+    margin-bottom: 8px;
+}
+
+/* 6. Liste ve Makale Düzeni */
 ul {
     padding-left: 20px;
-    margin-top: 15px;
+    margin-top: 16px;
 }
 
 li {
     margin-bottom: 10px;
 }
 
-/* 6. Alt Bilgi (Footer) */
+/* Makale sayfası paragraf boşlukları (V2'den) */
+article p {
+    margin-bottom: 22px;
+}
+
+/* 7. Alt Bilgi (Footer) */
 footer {
     margin-top: 80px;
     padding-top: 20px;
     border-top: 1px solid #eee;
     font-size: 14px;
-    color: #777;
+    color: #777777;
 }
 
-/* Görsellerin dışarı taşmasını engeller */
+/* Görsel güvenliği */
 img {
     max-width: 100%;
     height: auto;
-    border-radius: 4px; /* Hafif yumuşatılmış köşeler */
+    border-radius: 4px;
 }
