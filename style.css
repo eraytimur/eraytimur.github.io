@@ -1,0 +1,106 @@
+/* 1. Sayfa Temeli ve Tipografi */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    background: #ffffff;
+    color: #111;
+    line-height: 1.7; /* Okunabilirliği artıran geniş satır aralığı */
+    -webkit-font-smoothing: antialiased; /* Fontların daha net görünmesini sağlar */
+}
+
+/* 2. Ana Taşıyıcı (Container) */
+.container {
+    max-width: 720px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+/* 3. Başlıklar */
+h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    color: #000;
+}
+
+/* Mobil cihazlar için başlık boyutunu optimize eder */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 32px;
+    }
+    .container {
+        padding: 30px 20px;
+    }
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+}
+
+/* 4. Navigasyon (Menü) */
+nav {
+    margin-bottom: 60px;
+    border-bottom: 1px solid #eee; /* Hafif bir ayırıcı çizgi ekler */
+    padding-bottom: 20px;
+}
+
+nav a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* 5. İçerik ve Yazı Listesi */
+.section {
+    margin-bottom: 60px;
+}
+
+.post {
+    margin-bottom: 30px;
+}
+
+.post a {
+    font-size: 22px; /* Başlıkları biraz daha belirgin yaptık */
+    font-weight: 600;
+    text-decoration: none;
+    color: #000;
+    display: block; /* Tıklama alanını genişletir */
+    margin-bottom: 5px;
+}
+
+.post a:hover {
+    color: #007bff; /* Üzerine gelince hafif renk değişimi */
+}
+
+/* Liste öğeleri için temiz düzen */
+ul {
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* 6. Alt Bilgi (Footer) */
+footer {
+    margin-top: 80px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+    color: #777;
+}
+
+/* Görsellerin dışarı taşmasını engeller */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px; /* Hafif yumuşatılmış köşeler */
+}
