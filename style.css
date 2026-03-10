@@ -2,8 +2,8 @@
 :root {
     --bg-color: #ffffff;
     --text-main: #111111;
-    --text-muted: #555555;
-    --link-color: #0066cc; /* Linkler için standart mavi */
+    --text-muted: #666666; /* Meta metinleri için daha yumuşak gri */
+    --link-color: #0066cc;
     --link-hover: #007bff;
     --border-line: #eeeeee;
 }
@@ -12,8 +12,8 @@
     :root {
         --bg-color: #121212;
         --text-main: #e0e0e0;
-        --text-muted: #aaaaaa;
-        --link-color: #66b3ff; /* Gece modunda linkler için parlak ve okunaklı mavi */
+        --text-muted: #888888; /* Gece modunda göz yormayan, geri planda kalan gri */
+        --link-color: #66b3ff;
         --link-hover: #99ccff;
         --border-line: #333333;
     }
@@ -34,18 +34,20 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* 3. Genel Link Ayarları (Mor Renk Sorununu Çözer) */
+/* 3. Genel Link Ayarları (Tüm sayfalardaki mor renk sorununu kalıcı çözer) */
 a {
     color: var(--link-color);
+    text-decoration: none;
     transition: color 0.2s ease;
 }
 
 a:visited {
-    color: var(--link-color); /* Tarayıcının varsayılan karanlık mor rengini iptal eder */
+    color: var(--link-color);
 }
 
 a:hover {
     color: var(--link-hover);
+    text-decoration: underline; /* Link olduğu anlaşılsın diye hover durumunda altı çizilir */
 }
 
 /* 4. Ana Taşıyıcı */
@@ -65,16 +67,17 @@ nav {
 nav a, nav a:visited {
     margin-right: 20px;
     text-decoration: none;
-    color: var(--text-main); /* Menü linkleri metin renginde kalır */
+    color: var(--text-main);
     font-weight: 600;
     font-size: 16px;
 }
 
 nav a:hover {
     color: var(--link-hover);
+    text-decoration: none;
 }
 
-/* 6. Makale İçeriği */
+/* 6. Başlıklar ve Yazı Listeleme (Görsel Hiyerarşi Optimizasyonu) */
 h1 {
     font-size: 40px;
     line-height: 1.2;
@@ -84,12 +87,41 @@ h1 {
     letter-spacing: -0.5px;
 }
 
-.article-meta {
-    font-size: 14px;
-    color: var(--text-muted);
-    margin-bottom: 35px;
+h2 {
+    font-size: 26px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-line);
+    padding-bottom: 8px;
 }
 
+.post {
+    margin-bottom: 28px;
+}
+
+.post a {
+    font-size: 20px; /* Başlıklar belirginleştirildi */
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px; /* Başlık ile meta bilgi arasına nefes payı eklendi */
+}
+
+/* Meta Metinleri ("March 2026 · 2 min read" Kısmı) */
+.article-meta, .post-meta {
+    font-size: 13.5px; /* Boyut küçültüldü */
+    color: var(--text-muted); /* Renk soluklaştırıldı */
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.post .post-meta {
+    margin-bottom: 8px;
+    display: block;
+    letter-spacing: 0.3px; /* Biraz boşluk eklenerek profesyonel bir hava katıldı */
+}
+
+/* 7. Makale İçeriği */
 article p {
     font-size: 18px;
     margin-bottom: 22px;
@@ -97,7 +129,7 @@ article p {
     text-align: left; 
 }
 
-/* 7. Görseller */
+/* 8. Görseller */
 article img {
     width: 100%;
     max-width: 100%;
@@ -115,7 +147,7 @@ article img {
     }
 }
 
-/* 8. Alt Bilgi (Footer) */
+/* 9. Alt Bilgi (Footer) */
 footer {
     margin-top: 60px;
     padding-top: 20px;
@@ -125,13 +157,17 @@ footer {
     color: var(--text-muted);
 }
 
-/* 9. Tablet ve Mobil Optimizasyonu */
+/* 10. Tablet ve Mobil Optimizasyonu */
 @media (max-width: 768px) {
     .container {
         padding: 40px 20px;
     }
     h1 {
         font-size: 32px;
+    }
+    h2 {
+        font-size: 22px;
+        margin-top: 40px;
     }
     article p {
         font-size: 16px;
