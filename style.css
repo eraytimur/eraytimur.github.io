@@ -12,7 +12,7 @@
     :root {
         --bg-color: #121212;
         --text-main: #e0e0e0;
-        --text-muted: #888888;
+        --text-muted: #999999; /* Gece modunda listelerin okunurluğu için biraz açıldı */
         --link-color: #66b3ff;
         --link-hover: #99ccff;
         --border-line: #333333;
@@ -73,7 +73,7 @@ nav a:hover {
     text-decoration: none;
 }
 
-/* 6. Başlıklar ve Yazı Listeleme (Görsel Hiyerarşi) */
+/* 6. Başlıklar ve Yazı Listeleme (Hiyerarşi Yeniden İnşa Edildi) */
 h1 {
     font-size: 40px;
     line-height: 1.2;
@@ -92,46 +92,78 @@ h2 {
     padding-bottom: 8px;
 }
 
+/* YENİ ESTETİK: Alt Başlıklar (Certifications, Continuous Learning) */
+h3 {
+    font-size: 20px;
+    margin-top: 56px; /* Üstteki paragraflardan TAMAMEN koparıldı, nefes aldırıldı */
+    margin-bottom: 24px; /* Alttaki liste ile arasına şık bir boşluk eklendi */
+    color: var(--text-main);
+    font-weight: 600;
+    letter-spacing: -0.2px;
+}
+
 .post {
     margin-bottom: 30px; 
 }
 
-/* Meta Metinleri ("Coming soon", "March 2026" Kısmı) */
 .post-meta, .article-meta {
     font-size: 13.5px;
     color: var(--text-muted);
-    margin-bottom: 2px; /* Başlığa (Linke) sımsıkı yapışması için iyice daraltıldı */
-    margin-top: 0; /* HTML'de paragraf etiketi kullanıldıysa varsayılan boşluğunu ezer */
+    margin-bottom: 2px;
+    margin-top: 0;
     font-weight: 400;
     display: block;
     letter-spacing: 0.3px;
 }
 
-/* Yazı Başlıkları Link Ayarı (Grup Aralığı) */
 .post a, .post a:visited, 
 .container > a, .container > a:visited { 
     font-size: 20px;
     font-weight: 600;
     display: block;
-    margin-bottom: 28px; /* Kendi grubunu kapatıp bir sonraki tarih/yazı ile arasını açar */
+    margin-bottom: 28px;
     color: var(--link-color) !important;
     margin-top: 0;
 }
 
-/* Ana makale okuma sayfasındaki başlık altı tarihinin boşluğu geniş kalsın */
 article > .article-meta {
     margin-bottom: 35px;
 }
 
-/* 7. Makale İçeriği */
-article p {
+/* 7. Paragraflar (Sıkışıklığı Gideren Ana Çözüm) */
+.container p {
     font-size: 18px;
-    margin-bottom: 22px;
+    margin-bottom: 26px; /* Paragraf arası boşluklar net bir şekilde artırıldı */
     color: var(--text-main);
+    line-height: 1.7; /* Satır araları okumayı kolaylaştırmak için ferahlatıldı */
     text-align: left; 
 }
 
-/* 8. Görseller */
+.subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    margin-top: 0;
+}
+
+/* 8. Estetik Listeler (Benchmark Görünümü) */
+ul {
+    padding-left: 18px;
+    margin-bottom: 40px;
+}
+
+li {
+    margin-bottom: 16px; /* Liste elemanları birbirine yapışmasın diye arası açıldı */
+    font-size: 16.5px;
+    color: var(--text-muted); /* Modern kontrast: Kurum isimleri hafif soluk... */
+    line-height: 1.6;
+}
+
+li strong {
+    color: var(--text-main); /* ...Sertifika isimleri ise tam siyah/beyaz ile vurgulandı! */
+}
+
+/* 9. Görseller */
 article img {
     width: 100%;
     max-width: 100%;
@@ -149,7 +181,7 @@ article img {
     }
 }
 
-/* 9. Alt Bilgi (Footer) */
+/* 10. Alt Bilgi (Footer) */
 footer {
     margin-top: 60px;
     padding-top: 20px;
@@ -159,7 +191,7 @@ footer {
     color: var(--text-muted);
 }
 
-/* 10. Tablet ve Mobil Optimizasyonu */
+/* 11. Tablet ve Mobil Optimizasyonu */
 @media (max-width: 768px) {
     .container {
         padding: 40px 20px;
@@ -171,8 +203,16 @@ footer {
         font-size: 22px;
         margin-top: 40px;
     }
-    article p {
+    h3 {
+        font-size: 19px;
+        margin-top: 48px;
+    }
+    .container p {
         font-size: 16px;
+        margin-bottom: 20px;
+    }
+    li {
+        font-size: 15.5px;
     }
     nav {
         margin-bottom: 40px;
