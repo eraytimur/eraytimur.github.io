@@ -1,4 +1,23 @@
-/* 1. Sayfa Temeli ve Temizleme */
+/* 1. Renk Temaları (Karanlık/Aydınlık Mod İçin En Güvenli Sistem) */
+:root {
+    --bg-color: #ffffff;
+    --text-main: #111111;
+    --text-muted: #555555;
+    --link-hover: #007bff;
+    --border-line: #eeeeee;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #121212;
+        --text-main: #e0e0e0;
+        --text-muted: #aaaaaa;
+        --link-hover: #66b3ff; /* Gece modunda linklerin daha iyi görünmesi için parlak mavi */
+        --border-line: #333333;
+    }
+}
+
+/* 2. Temel Ayarlar ve Tipografi (Serif Fonttan Kurtulma) */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,119 +25,52 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    background: #ffffff;
-    color: #111111;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
 }
 
-/* 2. Ana Taşıyıcı */
+/* 3. Ana Taşıyıcı */
 .container {
-    max-width: 680px; /* Okuma kolaylığı için ideal genişlik */
+    max-width: 720px;
     margin: 0 auto;
     padding: 60px 20px;
 }
 
-/* 3. Navigasyon */
+/* 4. Navigasyon (Menü) */
 nav {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-line);
 }
 
 nav a {
     margin-right: 20px;
     text-decoration: none;
-    color: #111111;
-    font-weight: 500;
-    font-size: 15px;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.2s ease;
 }
 
 nav a:hover {
-    color: #007bff;
+    color: var(--link-hover);
 }
 
-/* 4. Makale ve Yazı Alanı */
-article {
-    display: block;
-}
-
+/* 5. Makale İçeriği */
 h1 {
-    font-size: 38px;
+    font-size: 40px;
     line-height: 1.2;
     margin-bottom: 12px;
-    color: #000;
-    font-weight: 800;
+    color: var(--text-main);
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .article-meta {
     font-size: 14px;
-    color: #666;
+    color: var(--text-muted);
     margin-bottom: 35px;
-    display: flex;
-    gap: 8px;
-}
-
-/* Paragraf Ayarları - Sorunun Çözümü Burası */
-article p {
-    margin-bottom: 20px; /* Paragraf arası dikey boşluk */
-    text-align: left;    /* Kelime aralarını açan 'justify' hatasını engeller */
-    font-size: 18px;
-    word-spacing: normal;
-    letter-spacing: -0.011em;
-}
-
-/* 5. Görseller */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 40px auto;
-    border-radius: 4px;
-}
-
-/* 6. Alt Bilgi */
-footer {
-    margin-top: 80px;
-    padding-top: 30px;
-    border-top: 1px solid #eee;
-    font-size: 14px;
-    color: #888;
-}
-
-/* 7. Mobil Uyumluluk */
-@media (max-width: 600px) {
-    .container { padding: 40px 20px; }
-    h1 { font-size: 30px; }
-    article p { font-size: 17px; }
-}
-
-/* 8. Gece Modu (Dark Mode) */
-@media (prefers-color-scheme: dark) {
-    body {
-        background: #000000;
-        color: #e0e0e0;
-    }
-    
-    h1, h2, nav a {
-        color: #ffffff;
-    }
-
-    nav, footer {
-        border-color: #222;
-    }
-
-    .article-meta {
-        color: #888;
-    }
-
-    nav a:hover {
-        color: #4dabff;
-    }
-    
-    img {
-        opacity: 0.9;
-    }
 }
