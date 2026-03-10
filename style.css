@@ -2,7 +2,7 @@
 :root {
     --bg-color: #ffffff;
     --text-main: #111111;
-    --text-muted: #666666; /* Meta metinleri için daha yumuşak gri */
+    --text-muted: #666666;
     --link-color: #0066cc;
     --link-hover: #007bff;
     --border-line: #eeeeee;
@@ -12,8 +12,8 @@
     :root {
         --bg-color: #121212;
         --text-main: #e0e0e0;
-        --text-muted: #888888; /* Gece modunda göz yormayan, geri planda kalan gri */
-        --link-color: #66b3ff;
+        --text-muted: #888888;
+        --link-color: #66b3ff; /* Gece modundaki parlak mavi */
         --link-hover: #99ccff;
         --border-line: #333333;
     }
@@ -34,20 +34,16 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* 3. Genel Link Ayarları (Tüm sayfalardaki mor renk sorununu kalıcı çözer) */
-a {
-    color: var(--link-color);
+/* 3. Genel Link Ayarları (Tarayıcı İnadını Kırmak İçin Güçlendirildi) */
+a, a:link, a:visited, a:active {
+    color: var(--link-color) !important; /* Tarayıcının mor rengini KESİNLİKLE ezer */
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
-a:visited {
-    color: var(--link-color);
-}
-
 a:hover {
-    color: var(--link-hover);
-    text-decoration: underline; /* Link olduğu anlaşılsın diye hover durumunda altı çizilir */
+    color: var(--link-hover) !important;
+    text-decoration: underline; /* Üzerine gelince link olduğu netleşir */
 }
 
 /* 4. Ana Taşıyıcı */
@@ -64,20 +60,20 @@ nav {
     border-bottom: 1px solid var(--border-line);
 }
 
-nav a, nav a:visited {
+nav a, nav a:visited, nav a:link, nav a:active {
     margin-right: 20px;
     text-decoration: none;
-    color: var(--text-main);
+    color: var(--text-main) !important; /* Menü linklerinin siyah/beyaz kalmasını garantiler */
     font-weight: 600;
     font-size: 16px;
 }
 
 nav a:hover {
-    color: var(--link-hover);
+    color: var(--link-hover) !important;
     text-decoration: none;
 }
 
-/* 6. Başlıklar ve Yazı Listeleme (Görsel Hiyerarşi Optimizasyonu) */
+/* 6. Başlıklar ve Yazı Listeleme (Görsel Hiyerarşi) */
 h1 {
     font-size: 40px;
     line-height: 1.2;
@@ -100,17 +96,19 @@ h2 {
     margin-bottom: 28px;
 }
 
-.post a {
-    font-size: 20px; /* Başlıklar belirginleştirildi */
+/* Yazı Başlıkları Link Ayarı */
+.post a, .post a:visited {
+    font-size: 20px;
     font-weight: 600;
     display: block;
-    margin-bottom: 4px; /* Başlık ile meta bilgi arasına nefes payı eklendi */
+    margin-bottom: 4px;
+    color: var(--link-color) !important;
 }
 
 /* Meta Metinleri ("March 2026 · 2 min read" Kısmı) */
 .article-meta, .post-meta {
-    font-size: 13.5px; /* Boyut küçültüldü */
-    color: var(--text-muted); /* Renk soluklaştırıldı */
+    font-size: 13.5px;
+    color: var(--text-muted);
     margin-bottom: 25px;
     font-weight: 400;
 }
@@ -118,7 +116,7 @@ h2 {
 .post .post-meta {
     margin-bottom: 8px;
     display: block;
-    letter-spacing: 0.3px; /* Biraz boşluk eklenerek profesyonel bir hava katıldı */
+    letter-spacing: 0.3px;
 }
 
 /* 7. Makale İçeriği */
