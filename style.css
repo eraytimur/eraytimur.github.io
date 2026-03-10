@@ -13,7 +13,7 @@
         --bg-color: #121212;
         --text-main: #e0e0e0;
         --text-muted: #888888;
-        --link-color: #66b3ff; /* Gece modundaki parlak mavi */
+        --link-color: #66b3ff;
         --link-hover: #99ccff;
         --border-line: #333333;
     }
@@ -34,16 +34,16 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* 3. Genel Link Ayarları (Tarayıcı İnadını Kırmak İçin Güçlendirildi) */
+/* 3. Genel Link Ayarları */
 a, a:link, a:visited, a:active {
-    color: var(--link-color) !important; /* Tarayıcının mor rengini KESİNLİKLE ezer */
+    color: var(--link-color) !important;
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 a:hover {
     color: var(--link-hover) !important;
-    text-decoration: underline; /* Üzerine gelince link olduğu netleşir */
+    text-decoration: underline;
 }
 
 /* 4. Ana Taşıyıcı */
@@ -63,7 +63,7 @@ nav {
 nav a, nav a:visited, nav a:link, nav a:active {
     margin-right: 20px;
     text-decoration: none;
-    color: var(--text-main) !important; /* Menü linklerinin siyah/beyaz kalmasını garantiler */
+    color: var(--text-main) !important;
     font-weight: 600;
     font-size: 16px;
 }
@@ -93,30 +93,34 @@ h2 {
 }
 
 .post {
-    margin-bottom: 28px;
+    margin-bottom: 30px; 
 }
 
-/* Yazı Başlıkları Link Ayarı */
-.post a, .post a:visited {
+/* Meta Metinleri ("Coming soon", "March 2026" Kısmı) */
+.post-meta, .article-meta {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    margin-bottom: 2px; /* Başlığa (Linke) sımsıkı yapışması için iyice daraltıldı */
+    margin-top: 0; /* HTML'de paragraf etiketi kullanıldıysa varsayılan boşluğunu ezer */
+    font-weight: 400;
+    display: block;
+    letter-spacing: 0.3px;
+}
+
+/* Yazı Başlıkları Link Ayarı (Grup Aralığı) */
+.post a, .post a:visited, 
+.container > a, .container > a:visited { 
     font-size: 20px;
     font-weight: 600;
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 28px; /* Kendi grubunu kapatıp bir sonraki tarih/yazı ile arasını açar */
     color: var(--link-color) !important;
+    margin-top: 0;
 }
 
-/* Meta Metinleri ("March 2026 · 2 min read" Kısmı) */
-.article-meta, .post-meta {
-    font-size: 13.5px;
-    color: var(--text-muted);
-    margin-bottom: 25px;
-    font-weight: 400;
-}
-
-.post .post-meta {
-    margin-bottom: 8px;
-    display: block;
-    letter-spacing: 0.3px;
+/* Ana makale okuma sayfasındaki başlık altı tarihinin boşluğu geniş kalsın */
+article > .article-meta {
+    margin-bottom: 35px;
 }
 
 /* 7. Makale İçeriği */
