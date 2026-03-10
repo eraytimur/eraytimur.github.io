@@ -1,47 +1,43 @@
-
 /* 1. Sayfa Temeli ve Tipografi */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     margin: 0;
     background: #ffffff;
     color: #111111;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased; /* Font netliği (V1'den) */
+    line-height: 1.5; /* 1.7'den 1.5'e düşürüldü: Satır arası daraltıldı */
+    -webkit-font-smoothing: antialiased;
 }
 
-/* 2. Ana Taşıyıcı (Container) */
-.container {
-    max-width: 720px;
-    margin: auto;
-    padding: 56px 20px;
+/* 6. Liste ve Makale Düzeni */
+article p {
+    margin-bottom: 16px; /* 22px'den 16px'e düşürüldü: Paragraf arası daraltıldı */
+    text-align: left;    /* Görseldeki tuhaf kelime arası boşlukları engeller */
+    word-spacing: normal;
 }
 
-/* 3. Başlıklar ve Hiyerarşi */
+/* Başlık boşluklarını da optimize edelim */
 h1 {
     font-size: 42px;
-    line-height: 1.15;
-    margin-bottom: 12px;
+    line-height: 1.1;
+    margin-bottom: 8px; /* Boşluk azaltıldı */
     color: #000;
 }
 
-h2 {
-    font-size: 24px; /* Biraz daha vurgulu */
-    margin-top: 48px;
-    margin-bottom: 18px;
-    color: #000;
+.article-meta {
+    font-size: 14px;
+    color: #606060;
+    margin-bottom: 24px; /* Başlık ile ilk paragraf arası düzenlendi */
 }
 
-/* Mobil cihazlar için başlık ve boşluk optimizasyonu (V1'den) */
-@media (max-width: 600px) {
-    h1 { font-size: 32px; }
-    h2 { font-size: 22px; }
-    .container { padding: 30px 20px; }
-}
-
-.subtitle {
-    color: #555555;
-    margin-bottom: 42px;
-    font-size: 17px;
+/* Gece Modu Optimizasyonu */
+@media (prefers-color-scheme: dark) {
+    body, .container {
+        background-color: #121212 !important;
+        color: #e0e0e0 !important;
+    }
+    h1, h2, nav a, .post a {
+        color: #ffffff !important;
+    }
 }
 
 /* 4. Navigasyon (Menü) */
