@@ -1,153 +1,124 @@
-/* 1. Sayfa Temeli ve Tipografi */
+/* 1. Sayfa Temeli ve Temizleme */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    margin: 0;
     background: #ffffff;
     color: #111111;
-    line-height: 1.5; /* 1.7'den 1.5'e düşürüldü: Satır arası daraltıldı */
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
-/* 6. Liste ve Makale Düzeni */
-article p {
-    margin-bottom: 16px; /* 22px'den 16px'e düşürüldü: Paragraf arası daraltıldı */
-    text-align: left;    /* Görseldeki tuhaf kelime arası boşlukları engeller */
-    word-spacing: normal;
+/* 2. Ana Taşıyıcı */
+.container {
+    max-width: 680px; /* Okuma kolaylığı için ideal genişlik */
+    margin: 0 auto;
+    padding: 60px 20px;
 }
 
-/* Başlık boşluklarını da optimize edelim */
+/* 3. Navigasyon */
+nav {
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+nav a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #111111;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+/* 4. Makale ve Yazı Alanı */
+article {
+    display: block;
+}
+
 h1 {
-    font-size: 42px;
-    line-height: 1.1;
-    margin-bottom: 8px; /* Boşluk azaltıldı */
+    font-size: 38px;
+    line-height: 1.2;
+    margin-bottom: 12px;
     color: #000;
+    font-weight: 800;
 }
 
 .article-meta {
     font-size: 14px;
-    color: #606060;
-    margin-bottom: 24px; /* Başlık ile ilk paragraf arası düzenlendi */
+    color: #666;
+    margin-bottom: 35px;
+    display: flex;
+    gap: 8px;
 }
 
-/* Gece Modu Optimizasyonu */
-@media (prefers-color-scheme: dark) {
-    body, .container {
-        background-color: #121212 !important;
-        color: #e0e0e0 !important;
-    }
-    h1, h2, nav a, .post a {
-        color: #ffffff !important;
-    }
-}
-
-/* 4. Navigasyon (Menü) */
-nav {
-    margin-bottom: 52px;
-    border-bottom: 1px solid #eee; /* Hafif ayırıcı çizgi (V1'den) */
-    padding-bottom: 20px;
-}
-
-nav a {
-    margin-right: 22px;
-    text-decoration: none;
-    color: #111111;
-    font-weight: 600; /* Daha belirgin (V2'den) */
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* 5. İçerik ve Yazı Listesi */
-.section {
-    margin-bottom: 56px;
-}
-
-.post {
-    margin-bottom: 25px;
-}
-
-.post a {
-    font-size: 22px; /* Başlık vurgusu (V1'den) */
-    font-weight: 600;
-    text-decoration: none;
-    color: #111111;
-    display: block; /* Tıklama alanını genişletir */
-}
-
-.post a:hover {
-    color: #007bff; /* Renk değişimi ile etkileşim (V1'den) */
-}
-
-/* Yazı Meta Verileri (Tarih vb. - V2'den) */
-.post-meta, .article-meta {
-    font-size: 14px;
-    color: #606060;
-    margin-bottom: 8px;
-}
-
-/* 6. Liste ve Makale Düzeni */
-ul {
-    padding-left: 20px;
-    margin-top: 16px;
-}
-
-li {
-    margin-bottom: 10px;
-}
-
-/* Makale sayfası paragraf boşlukları (V2'den) */
+/* Paragraf Ayarları - Sorunun Çözümü Burası */
 article p {
-    margin-bottom: 22px;
+    margin-bottom: 20px; /* Paragraf arası dikey boşluk */
+    text-align: left;    /* Kelime aralarını açan 'justify' hatasını engeller */
+    font-size: 18px;
+    word-spacing: normal;
+    letter-spacing: -0.011em;
 }
 
-/* 7. Alt Bilgi (Footer) */
+/* 5. Görseller */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 40px auto;
+    border-radius: 4px;
+}
+
+/* 6. Alt Bilgi */
 footer {
     margin-top: 80px;
-    padding-top: 20px;
+    padding-top: 30px;
     border-top: 1px solid #eee;
     font-size: 14px;
-    color: #606060;
+    color: #888;
 }
 
-/* Genel görseller */
-img {
-  max-width: 100%;
-  height: auto;
+/* 7. Mobil Uyumluluk */
+@media (max-width: 600px) {
+    .container { padding: 40px 20px; }
+    h1 { font-size: 30px; }
+    article p { font-size: 17px; }
 }
 
-/* Makale içi görseller */
-article img {
-  display: block;
-  margin: 30px auto;
-  border-radius: 6px;
-}
-
-/* Gece Modu Başlangıcı */
+/* 8. Gece Modu (Dark Mode) */
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #121212 !important; /* !important zorunlu kılar */
-        color: #e0e0e0 !important;
+        background: #000000;
+        color: #e0e0e0;
     }
     
-    .container {
-        background-color: #121212 !important;
-    }
-
-    h1, h2, nav a, .post a {
-        color: #ffffff !important;
-    }
-    
-    .subtitle, .post-meta, footer {
-        color: #aaaaaa !important;
+    h1, h2, nav a {
+        color: #ffffff;
     }
 
     nav, footer {
-        border-color: #333 !important;
+        border-color: #222;
+    }
+
+    .article-meta {
+        color: #888;
+    }
+
+    nav a:hover {
+        color: #4dabff;
     }
     
-    nav a:hover, .post a:hover {
-        color: #4dabff !important;
+    img {
+        opacity: 0.9;
     }
 }
-/* Gece Modu Bitişi */
