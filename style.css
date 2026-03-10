@@ -3,6 +3,7 @@
     --bg-color: #ffffff;
     --text-main: #111111;
     --text-muted: #555555;
+    --link-color: #0066cc; /* Linkler için standart mavi */
     --link-hover: #007bff;
     --border-line: #eeeeee;
 }
@@ -12,7 +13,8 @@
         --bg-color: #121212;
         --text-main: #e0e0e0;
         --text-muted: #aaaaaa;
-        --link-hover: #66b3ff;
+        --link-color: #66b3ff; /* Gece modunda linkler için parlak ve okunaklı mavi */
+        --link-hover: #99ccff;
         --border-line: #333333;
     }
 }
@@ -32,34 +34,47 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* 3. Ana Taşıyıcı */
+/* 3. Genel Link Ayarları (Mor Renk Sorununu Çözer) */
+a {
+    color: var(--link-color);
+    transition: color 0.2s ease;
+}
+
+a:visited {
+    color: var(--link-color); /* Tarayıcının varsayılan karanlık mor rengini iptal eder */
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+/* 4. Ana Taşıyıcı */
 .container {
     max-width: 720px;
     margin: 0 auto;
     padding: 60px 20px;
 }
 
-/* 4. Navigasyon (Menü) */
+/* 5. Navigasyon (Menü) */
 nav {
     margin-bottom: 50px;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--border-line);
 }
 
-nav a {
+nav a, nav a:visited {
     margin-right: 20px;
     text-decoration: none;
-    color: var(--text-main);
+    color: var(--text-main); /* Menü linkleri metin renginde kalır */
     font-weight: 600;
     font-size: 16px;
-    transition: color 0.2s ease;
 }
 
 nav a:hover {
     color: var(--link-hover);
 }
 
-/* 5. Makale İçeriği */
+/* 6. Makale İçeriği */
 h1 {
     font-size: 40px;
     line-height: 1.2;
@@ -82,8 +97,50 @@ article p {
     text-align: left; 
 }
 
-/* 6. Görseller (YENİDEN OPTİMİZE EDİLDİ) */
+/* 7. Görseller */
 article img {
-    width: 100%; /* Görselin, yazı genişliğini geçmesini engeller */
+    width: 100%;
     max-width: 100%;
-    height: auto; /* Görselin oranını (en-boy) korur */
+    height: auto;
+    display: block;
+    margin: 40px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+    article img {
+        opacity: 0.9;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* 8. Alt Bilgi (Footer) */
+footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-bottom: none;
+    border-top: 1px solid var(--border-line);
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* 9. Tablet ve Mobil Optimizasyonu */
+@media (max-width: 768px) {
+    .container {
+        padding: 40px 20px;
+    }
+    h1 {
+        font-size: 32px;
+    }
+    article p {
+        font-size: 16px;
+    }
+    nav {
+        margin-bottom: 40px;
+    }
+    article img {
+        margin: 30px auto;
+        border-radius: 6px;
+    }
+}
