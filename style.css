@@ -142,15 +142,19 @@ article > .article-meta {
 .subtitle {
     font-size: 18px;
     color: var(--text-muted);
-    margin-bottom: 40px;
+    margin-bottom: 8px; /* Boşluğu iyice daralttık, altındaki nota sımsıkı sarılacak */
     margin-top: 0;
 }
 
+/* YENİ ESTETİK NOT STİLİ */
 .note {
-  font-size: 0.9rem;
-  opacity: 0.8;
-  margin-top: 6px;
-  font-style: italic;
+    font-size: 14.5px; /* Daha zarif ve hiyerarşik bir küçüklük */
+    color: var(--text-muted); /* Sitenin orijinal sönük gri tonuyla eşleştirildi */
+    opacity: 0.85; /* Çok hafif bir transparanlık ile bir tık daha geriye atıldı */
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 48px; /* Asıl büyük boşluğu şimdi bu grubun en altına, Writing'den önceye verdik */
+    letter-spacing: 0.3px; /* İtalik fontun ekranda çamurlaşmasını engeller, okunabilirliği artırır */
 }
 
 /* 8. Estetik Listeler (Benchmark Görünümü) */
