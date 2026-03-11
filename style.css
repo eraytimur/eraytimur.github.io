@@ -146,6 +146,13 @@ article > .article-meta {
     margin-top: 0;
 }
 
+.note {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 6px;
+  font-style: italic;
+}
+
 /* 8. Estetik Listeler (Benchmark Görünümü) */
 ul {
     padding-left: 18px;
